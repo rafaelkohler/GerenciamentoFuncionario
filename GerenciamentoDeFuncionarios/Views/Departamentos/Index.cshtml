@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GerenciamentoDeFuncionarios.Models.Funcionario>
+﻿@model IEnumerable<GerenciamentoDeFuncionarios.Models.Departamento>
 
 @{
     ViewData["Title"] = "Index";
@@ -16,10 +16,10 @@
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Nascimento)
+                @Html.DisplayNameFor(model => model.Responsavel)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.LotacaoId)
+                Qtd
             </th>
             <th></th>
         </tr>
@@ -31,10 +31,10 @@
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Nascimento)
+                @Html.DisplayFor(modelItem => item.Responsavel.Nome)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Lotacao.Nome)
+                @Html.DisplayFor(modelItem => item.Funcionarios.Count)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

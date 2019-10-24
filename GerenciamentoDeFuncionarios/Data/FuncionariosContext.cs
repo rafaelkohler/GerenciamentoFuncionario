@@ -14,6 +14,15 @@ namespace GerenciamentoDeFuncionarios.Models
         {
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Funcionario>().
+                HasOne(f => f.Lotacao)
+                .WithMany(l => l.Funcionarios)
+                .OnDelete(DeleteBehavior.Restrict);
+
+        }
+
         public DbSet<GerenciamentoDeFuncionarios.Models.Departamento> Departamento { get; set; }
 
         public DbSet<GerenciamentoDeFuncionarios.Models.Funcionario> Funcionario { get; set; }
