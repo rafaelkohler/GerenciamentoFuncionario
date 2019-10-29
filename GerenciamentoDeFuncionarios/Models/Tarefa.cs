@@ -25,6 +25,7 @@ namespace GerenciamentoDeFuncionarios.Models
         public Funcionario Executor { get; set; }
 
         [ForeignKey("Executor")]
+        [Display(Name ="Descrição")]
         public int? ExecutorId { get; set; }
 
         public Departamento Area { get; set; }

@@ -32,7 +32,7 @@ namespace GerenciamentoDeFuncionarios.Controllers
                 return NotFound();
             }
 
-            var funcionario = await _context.Funcionario
+            var funcionario = await _context.Funcionario.Include("Lotacao")
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (funcionario == null)
             {
@@ -68,6 +68,7 @@ namespace GerenciamentoDeFuncionarios.Controllers
         // GET: Funcionarios/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            ViewData["Lotacao"] = new SelectList(_context.Departamento, "Id", "Nome");
             if (id == null)
             {
                 return NotFound();
